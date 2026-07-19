@@ -450,6 +450,16 @@ static HEVCFrame *find_ref_idx(HEVCContext *s, HEVCLayerContext *l,
         }
     }
 
+    /* Minimal error concealment. Pick the first frame we have. */
+    for (i = 0; i < FF_ARRAY_ELEMS(l->DPB); i++) {
+        HEVCFrame *ref = &l->DPB[i];
+        if (ref->f) {
+            av_log(s->avctx, AV_LOG_WARNING,
+                   "Could not find ref with POC %d, picked a replacement ref with POC %d\n", poc, ref->poc);
+            return ref;
+        }
+    }
+
     if (s->nal_unit_type != HEVC_NAL_CRA_NUT && !IS_BLA(s))
         av_log(s->avctx, AV_LOG_ERROR,
                "Could not find ref with POC %d\n", poc);
