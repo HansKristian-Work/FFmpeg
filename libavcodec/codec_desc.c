@@ -2001,6 +2001,13 @@ static const AVCodecDescriptor codec_descriptors[] = {
         .profiles  = NULL_IF_CONFIG_SMALL(ff_astc_profiles),
         .mime_types= MT("image/astc"),
     },
+    {
+        .id        = AV_CODEC_ID_PYROWAVE,
+        .type      = AVMEDIA_TYPE_VIDEO,
+        .name      = "pyrowave",
+        .long_name = NULL_IF_CONFIG_SMALL("PyroWave"),
+        .props     = AV_CODEC_PROP_INTRA_ONLY | AV_CODEC_PROP_LOSSY,
+    },
 
     /* various PCM "codecs" */
     {
