@@ -266,6 +266,7 @@ External library support:
   --enable-libopus         enable Opus de/encoding via libopus [no]
   --enable-libplacebo      enable libplacebo library [no]
   --enable-libpulse        enable Pulseaudio input via libpulse [no]
+  --enable-libpyrowave     enable pyrowave library [no]
   --enable-libqrencode     enable QR encode generation via libqrencode [no]
   --enable-libquirc        enable QR decoding via libquirc [no]
   --enable-librabbitmq     enable RabbitMQ library [no]
@@ -2100,6 +2101,7 @@ EXTERNAL_LIBRARY_LIST="
     libopus
     libplacebo
     libpulse
+    libpyrowave
     libqrencode
     libquirc
     librabbitmq
@@ -3253,6 +3255,10 @@ prores_aw_encoder_select="fdctdsp"
 prores_ks_encoder_select="fdctdsp"
 prores_ks_vulkan_encoder_select="vulkan spirv_compiler vulkan_seg_gather"
 prores_raw_decoder_select="blockdsp idctdsp"
+libpyrowave_encoder_deps="libpyrowave"
+libpyrowave_decoder_deps="libpyrowave"
+libpyrowave_encoder_select="vulkan"
+libpyrowave_decoder_select="vulkan"
 qcelp_decoder_select="lsp"
 qdm2_decoder_select="mpegaudiodsp"
 ra_144_decoder_select="audiodsp"
@@ -3838,6 +3844,8 @@ libopenmpt_demuxer_deps="libopenmpt"
 libopus_decoder_deps="libopus"
 libopus_encoder_deps="libopus"
 libopus_encoder_select="audio_frame_queue"
+libpyrowave_encoder_deps="libpyrowave vulkan"
+libpyrowave_decoder_deps="libpyrowave vulkan"
 librav1e_encoder_deps="librav1e"
 librsvg_decoder_deps="librsvg"
 libshine_encoder_deps="libshine"
@@ -7800,6 +7808,8 @@ fi
 enabled amf &&
     check_cpp_condition amf "AMF/core/Version.h" \
         "(AMF_VERSION_MAJOR << 48 | AMF_VERSION_MINOR << 32 | AMF_VERSION_RELEASE << 16 | AMF_VERSION_BUILD_NUM) >= 0x1000500020000"
+
+enabled libpyrowave && enabled vulkan && require_pkg_config libpyrowave pyrowave-shared "pyrowave.h" pyrowave_create_device
 
 # Funny iconv installations are not unusual, so check it after all flags have been set
 if enabled libc_iconv; then

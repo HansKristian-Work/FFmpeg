@@ -482,6 +482,13 @@ Go to @url{http://sourceforge.net/projects/zapping/} and follow the instructions
 installing the library. Then pass @code{--enable-libzvbi} to configure to
 enable it.
 
+@section PyroWave
+
+FFmpeg can use the pyrowave-shared library for encoding and decoding of PyroWave.
+The library requires a GPU capable of supporting Vulkan.
+Got to @url{http://github.com/Themaister/Pyrowave} and follow the instructions for
+installing the library. Then pass @code{--enable-libpyrowave} to configure to enable it.
+
 @chapter Supported File Formats, Codecs or Features
 
 You can use the @code{-formats} and @code{-codecs} options to have an exhaustive list.

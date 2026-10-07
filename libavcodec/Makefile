@@ -1217,6 +1217,8 @@ OBJS-$(CONFIG_LIBOPUS_DECODER)            += libopusdec.o libopus.o     \
                                              vorbis_data.o
 OBJS-$(CONFIG_LIBOPUS_ENCODER)            += libopusenc.o libopus.o     \
                                              vorbis_data.o
+OBJS-$(CONFIG_LIBPYROWAVE_DECODER)        += libpyrowave_dec.o
+OBJS-$(CONFIG_LIBPYROWAVE_ENCODER)        += libpyrowave_enc.o
 OBJS-$(CONFIG_LIBRAV1E_ENCODER)           += librav1e.o
 OBJS-$(CONFIG_LIBRSVG_DECODER)            += librsvgdec.o
 OBJS-$(CONFIG_LIBSHINE_ENCODER)           += libshine.o

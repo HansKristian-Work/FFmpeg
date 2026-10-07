@@ -16,6 +16,7 @@ version <next>:
 - DSD (dsd_msbf) encoder
 - Rhetorex ADPCM decoder
 - ADPCM IMA Citrix decoder
+- PyroWave Vulkan encoder and decoder via libpyrowave
 
 
 version 9.0:
