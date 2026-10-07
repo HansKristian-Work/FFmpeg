@@ -400,6 +400,8 @@ extern const FFInputFormat  ff_pp_bnk_demuxer;
 extern const FFOutputFormat ff_psp_muxer;
 extern const FFInputFormat  ff_pva_demuxer;
 extern const FFInputFormat  ff_pvf_demuxer;
+extern const FFInputFormat  ff_pyrowave_demuxer;
+extern const FFOutputFormat ff_pyrowave_muxer;
 extern const FFInputFormat  ff_qcp_demuxer;
 extern const FFInputFormat  ff_qoa_demuxer;
 extern const FFInputFormat  ff_r3d_demuxer;
